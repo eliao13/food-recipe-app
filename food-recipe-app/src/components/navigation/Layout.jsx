@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
-import Home from "../pages/HomePage";
-import Favourites from "../pages/FavouritesPage";
+import Home from "../../pages/HomePage";
+import Favourites from "../../pages/FavouritesPage";
+import SearchBar from "./SearchBar";
 
 export default function Layout() {
   const navItems = [
@@ -8,9 +9,11 @@ export default function Layout() {
     { name: "Favourites", path: "/favourites", component: <Favourites /> },
   ];
   return (
-    <div>
-      <nav>
-        <ul>
+    <div className="layout">
+      <nav className="nav-bar flex items-center justify-between">
+        <h1>FoodRecipe</h1>
+        <SearchBar />
+        <ul className="flex gap-4">
           {navItems.map((item, index) => {
             return (
               <li key={index}>

@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../pages/HomePage";
-import Favourites from "../pages/FavouritesPage";
+import Home from "../../pages/HomePage";
+import Favourites from "../../pages/FavouritesPage";
 import Layout from "./Layout";
-import ErrorPage from "../pages/ErrorPage";
+import ErrorPage from "../../pages/ErrorPage";
 
 export default function NavBar() {
   const navItems = [
