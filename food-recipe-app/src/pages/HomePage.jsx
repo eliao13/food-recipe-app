@@ -1,15 +1,12 @@
+import Recipe from "../components/home-page-recipe/Recipe";
+
 export default function Home({ recipes, searchWords }) {
   return (
     <section className="home-page">
       {recipes && recipes.length > 0 ? (
         <div className="recipes">
-          {recipes.map((recipe, index) => {
-            return (
-              <div key={index} className="recipe">
-                <img src={recipe.image_url} alt={recipe.title} />
-                <h3>{recipe.title}</h3>
-              </div>
-            );
+          {recipes.map((recipe) => {
+            return <Recipe key={recipe.id} recipeData={recipe} />;
           })}
         </div>
       ) : searchWords.trim() !== "" && recipes && recipes.length === 0 ? (
