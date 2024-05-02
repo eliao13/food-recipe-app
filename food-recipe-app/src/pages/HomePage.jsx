@@ -1,6 +1,6 @@
 import Recipe from "../components/home-page-recipe/Recipe";
 
-export default function Home({ recipes, searchWords }) {
+export default function HomePage({ recipes, searchWords }) {
   return (
     <section className="home-page">
       {recipes && recipes.length > 0 ? (

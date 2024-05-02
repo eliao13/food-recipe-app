@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../../pages/HomePage";
-import Favourites from "../../pages/FavouritesPage";
+import HomePage from "../../pages/HomePage";
+import FavouritesPage from "../../pages/FavouritesPage";
 import Layout from "./Layout";
 import ErrorPage from "../../pages/ErrorPage";
 import { useEffect, useState } from "react";
@@ -16,9 +16,9 @@ export default function NavBar() {
     {
       name: "Home",
       path: "/",
-      component: <Home recipes={recipes} searchWords={searchWords} />,
+      component: <HomePage recipes={recipes} searchWords={searchWords} />,
     },
-    { name: "Favourites", path: "/favourites", component: <Favourites /> },
+    { name: "Favourites", path: "/favourites", component: <FavouritesPage /> },
     { name: "Error", path: "/*", component: <ErrorPage /> },
   ];
 
