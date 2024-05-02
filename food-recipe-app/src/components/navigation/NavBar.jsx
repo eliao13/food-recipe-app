@@ -5,8 +5,7 @@ import Layout from "./Layout";
 import ErrorPage from "../../pages/ErrorPage";
 import { useEffect, useState } from "react";
 import fetchAllRecipes from "../../api/fetchAllRecipes";
-
-const API_KEY = "72c169bc-f17d-4bf1-90f0-bcd73db6a45e";
+import RecipePage from "../../pages/RecipePage";
 
 export default function NavBar() {
   const [searchWords, setSearchWords] = useState("");
@@ -19,11 +18,12 @@ export default function NavBar() {
       component: <HomePage recipes={recipes} searchWords={searchWords} />,
     },
     { name: "Favourites", path: "/favourites", component: <FavouritesPage /> },
+    { name: "Recipe", path: "/recipe-item/:id", component: <RecipePage /> },
     { name: "Error", path: "/*", component: <ErrorPage /> },
   ];
 
   useEffect(() => {
-    fetchAllRecipes(searchWords, API_KEY).then((data) => {
+    fetchAllRecipes(searchWords).then((data) => {
       setRecipes(data.data.recipes);
     });
   }, [searchWords]);

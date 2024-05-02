@@ -1,7 +1,7 @@
-async function fetchAllRecipes(searchWords, API_KEY) {
+async function fetchAllRecipes(searchWords) {
   try {
     const response = await fetch(
-      `https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchWords}&key=${API_KEY}`
+      `https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchWords}`
     );
 
     const data = await response.json();
