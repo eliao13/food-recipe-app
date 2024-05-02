@@ -1,18 +1,17 @@
 import { Link, Outlet } from "react-router-dom";
-import Home from "../../pages/HomePage";
-import Favourites from "../../pages/FavouritesPage";
 import SearchBar from "./SearchBar";
 
-export default function Layout() {
+export default function Layout({ setSearchWords }) {
   const navItems = [
-    { name: "Home", path: "/", component: <Home /> },
-    { name: "Favourites", path: "/favourites", component: <Favourites /> },
+    { name: "Home", path: "/" },
+    { name: "Favourites", path: "/favourites" },
   ];
+
   return (
     <div className="layout">
       <nav className="nav-bar flex items-center justify-between">
-        <h1>FoodRecipe</h1>
-        <SearchBar />
+        <h2>FoodRecipe</h2>
+        <SearchBar setSearchWords={setSearchWords} />
         <ul className="flex gap-4">
           {navItems.map((item, index) => {
             return (
