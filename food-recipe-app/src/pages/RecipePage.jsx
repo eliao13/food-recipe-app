@@ -26,18 +26,19 @@ export default function RecipePage() {
         </Button>
         <h2>Ingredients:</h2>
         <ul>
-          {recipeData.ingredients &&
-            recipeData.ingredients.map((ingredient, index) => {
-              return (
-                <li key={index}>
-                  {`
+          {recipeData.ingredients
+            ? recipeData.ingredients.map((ingredient, index) => {
+                return (
+                  <li key={index}>
+                    {`
                   ${ingredient.quantity}
                   ${ingredient.unit}
                   ${ingredient.description}
                   `}
-                </li>
-              );
-            })}
+                  </li>
+                );
+              })
+            : null}
         </ul>
       </article>
     </section>
