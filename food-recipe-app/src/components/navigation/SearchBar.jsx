@@ -1,9 +1,11 @@
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar({ setSearchWords }) {
   const [searchValue, setSearchValue] = useState("");
   const [timer, setTimer] = useState(null);
+  const navigate = useNavigate();
 
   function handleSearchChange(searchWords) {
     setSearchValue(searchWords);
@@ -16,6 +18,9 @@ export default function SearchBar({ setSearchWords }) {
       setTimeout(() => {
         if (searchWords.trim() !== "") {
           setSearchWords(searchWords);
+          navigate("/");
+          setSearchValue("");
+          document.getElementById("outlined-search").blur();
         }
       }, 1000)
     );

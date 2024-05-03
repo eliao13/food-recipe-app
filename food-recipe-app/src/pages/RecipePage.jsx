@@ -21,11 +21,7 @@ export default function RecipePage() {
       <article>
         <h3>{recipeData.publisher}</h3>
         <h1>{recipeData.title}</h1>
-        <Button
-          variant="contained"
-          color="primary"
-          href={recipeData.source_url}
-        >
+        <Button variant="contained" color="primary">
           Add to favourites
         </Button>
         <h2>Ingredients:</h2>
