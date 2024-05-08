@@ -5,7 +5,6 @@ export default function HomePage({ recipes, searchWords }) {
   return (
     <section className="home-page">
       {recipes && recipes.length > 0 ? (
-        // <div className="recipes">
         <Grid container spacing={2} columns={4}>
           {recipes.map((recipe) => {
             return (
@@ -17,7 +16,7 @@ export default function HomePage({ recipes, searchWords }) {
         </Grid>
       ) : searchWords.trim() !== "" && recipes && recipes.length === 0 ? (
         <h1 className="text-center">
-          No recipes found. Please search something else.
+          No recipes found for "{searchWords}". Please search something else.
         </h1>
       ) : (
         <h1 className="text-center">
