@@ -36,6 +36,7 @@ export default function SearchBar({ setSearchWords }) {
         onChange={(e) => {
           handleSearchChange(e.target.value);
         }}
+        sx={{ width: "100%" }}
       />
     </div>
   );

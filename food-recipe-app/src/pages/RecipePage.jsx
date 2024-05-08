@@ -37,19 +37,32 @@ export default function RecipePage() {
     }
   }
 
+  function convertMinutesToHoursAndMinutes(minutes) {
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+    return `${hours}h ${remainingMinutes}m`;
+  }
+
   return (
-    <section className="recipe">
+    <section className="recipe-page">
       <article>
-        <img src={recipeData.image_url} alt={recipeData.title} />
+        <img
+          className="w-full rounded-xl"
+          src={recipeData.image_url}
+          alt={recipeData.title}
+        />
       </article>
-      <article>
-        <h3>{recipeData.publisher}</h3>
-        <h1>{recipeData.title}</h1>
+      <article className="flex flex-col gap-4">
+        <div className="header">
+          <p className="text-blue-600">{recipeData.publisher}</p>
+          <h1>{recipeData.title}</h1>
+        </div>
         {addedToFavourites ? (
           <Button
             variant="contained"
             color="primary"
             onClick={handleRemoveFavourite}
+            className="btn favourite-btn"
           >
             Remove from favourites
           </Button>
@@ -58,26 +71,38 @@ export default function RecipePage() {
             variant="contained"
             color="primary"
             onClick={handleAddFavourite}
+            className="btn favourite-btn"
           >
             Add to favourites
           </Button>
         )}
-        <h2>Ingredients:</h2>
-        <ul>
-          {recipeData.ingredients
-            ? recipeData.ingredients.map((ingredient, index) => {
-                return (
-                  <li key={index}>
-                    {`
-                  ${ingredient.quantity}
-                  ${ingredient.unit}
+        {recipeData.servings ? <h3>Servings : {recipeData.servings}</h3> : ""}
+        {recipeData.cooking_time ? (
+          <h3>
+            Cooking Time:{" "}
+            {convertMinutesToHoursAndMinutes(recipeData.cooking_time)}
+          </h3>
+        ) : (
+          ""
+        )}
+        <div className="ingredients">
+          <h3>Ingredients:</h3>
+          <ul>
+            {recipeData.ingredients
+              ? recipeData.ingredients.map((ingredient, index) => {
+                  return (
+                    <li key={index}>
+                      {`
+                  ${ingredient.quantity ? ingredient.quantity : ""}
+                  ${ingredient.unit ? ingredient.unit : ""}
                   ${ingredient.description}
                   `}
-                  </li>
-                );
-              })
-            : null}
-        </ul>
+                    </li>
+                  );
+                })
+              : null}
+          </ul>
+        </div>
       </article>
     </section>
   );

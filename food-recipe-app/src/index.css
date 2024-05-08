@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  h2 {
+    @apply text-3xl font-bold;
+  }
+  h3 {
+    @apply text-2xl font-bold;
+  }
+  h4 {
+    @apply text-xl font-bold;
+  }
+  p {
+    @apply text-base;
+  }
+}
+
+@layer components {
+  .recipe-card {
+    @apply rounded-lg shadow-lg p-8 flex flex-col gap-4;
+  }
+
+  .recipe-card img {
+    @apply w-full h-[250px] object-cover rounded-xl;
+  }
+
+  .btn {
+    @apply bg-black text-white px-6 py-3 rounded-xl uppercase w-fit text-center !important;
+  }
+
+  .nav-bar {
+    @apply flex items-center justify-between gap-4 flex-col sm:flex-row;
+  }
+
+  .nav-bar .search-field {
+    @apply w-full max-w-md order-1 sm:order-none;
+  }
+
+  .recipe-page {
+    @apply flex gap-4 flex-col sm:flex-row;
+  }
+
+  .recipe-page article {
+    @apply flex-1;
+  }
+}

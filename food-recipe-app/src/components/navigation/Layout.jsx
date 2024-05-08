@@ -8,8 +8,8 @@ export default function Layout({ setSearchWords }) {
   ];
 
   return (
-    <div className="layout">
-      <nav className="nav-bar flex items-center justify-between">
+    <div className="layout pt-16 px-8 flex flex-col gap-16">
+      <nav className="nav-bar">
         <h2>FoodRecipe</h2>
         <SearchBar setSearchWords={setSearchWords} />
         <ul className="flex gap-4">
