@@ -11,9 +11,15 @@ export default function FavouritesPage() {
 
   return (
     <div>
-      {favourites.map((recipe) => {
-        return <Recipe key={recipe.id} recipeData={recipe} />;
-      })}
+      {favourites && favourites.length ? (
+        favourites.map((recipe) => {
+          return <Recipe key={recipe.id} recipeData={recipe} />;
+        })
+      ) : (
+        <h1 className="text-center">
+          No favourites found. Please add reciepes to favourites.
+        </h1>
+      )}
     </div>
   );
 }
