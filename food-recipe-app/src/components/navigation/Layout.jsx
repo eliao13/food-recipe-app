@@ -10,7 +10,9 @@ export default function Layout({ setSearchWords }) {
   return (
     <div className="layout pt-16 px-8 flex flex-col gap-16">
       <nav className="nav-bar">
-        <h2>FoodRecipe</h2>
+        <Link href="/">
+          <h2>FoodRecipe</h2>
+        </Link>
         <SearchBar setSearchWords={setSearchWords} />
         <ul className="flex gap-4">
           {navItems.map((item, index) => {
