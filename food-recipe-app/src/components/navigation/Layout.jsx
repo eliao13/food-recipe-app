@@ -10,7 +10,7 @@ export default function Layout({ setSearchWords }) {
   return (
     <div className="layout pt-16 px-8 flex flex-col gap-16">
       <nav className="nav-bar">
-        <Link href="/">
+        <Link to="/">
           <h2>FoodRecipe</h2>
         </Link>
         <SearchBar setSearchWords={setSearchWords} />

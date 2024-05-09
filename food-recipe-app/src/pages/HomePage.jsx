@@ -16,7 +16,8 @@ export default function HomePage({ recipes, searchWords }) {
         </Grid>
       ) : searchWords.trim() !== "" && recipes && recipes.length === 0 ? (
         <h1 className="text-center">
-          No recipes found for "{searchWords}". Please search something else.
+          No recipes found for &quot;{searchWords}&quot;. Please search
+          something else.
         </h1>
       ) : (
         <h1 className="text-center">
