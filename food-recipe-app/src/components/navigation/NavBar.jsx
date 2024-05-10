@@ -10,12 +10,19 @@ import RecipePage from "../../pages/RecipePage";
 export default function NavBar() {
   const [searchWords, setSearchWords] = useState("");
   const [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const navItems = [
     {
       name: "Home",
       path: "/",
-      component: <HomePage recipes={recipes} searchWords={searchWords} />,
+      component: (
+        <HomePage
+          recipes={recipes}
+          searchWords={searchWords}
+          loading={loading}
+        />
+      ),
     },
     { name: "Favourites", path: "/favourites", component: <FavouritesPage /> },
     { name: "Recipe", path: "/recipe-item/:id", component: <RecipePage /> },
@@ -23,9 +30,14 @@ export default function NavBar() {
   ];
 
   useEffect(() => {
+    setLoading(true);
     fetchAllRecipes(searchWords).then((data) => {
       setRecipes(data.data.recipes);
     });
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
   }, [searchWords]);
 
   return (
